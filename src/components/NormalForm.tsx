@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Button, TextField} from '@material-ui/core'
+import {Button, Card, CardContent, Container, TextField, Box, FormControl} from '@material-ui/core'
 
 
 interface IFormValue{
@@ -56,25 +56,41 @@ function NormalForm() {
     }
     
     return(
-        <form onSubmit={handelSubmit} autoComplete="off">
-            <TextField type="text"
-                name="name" 
-                value={formVal.name} 
-                onChange={handelOnChange} 
-                placeholder="Name"
-                {...(validationError.name && {error:true, helperText:validationError.name})}
-            />
-            <TextField type="text"
-                name="email"
-                value={formVal.email} 
-                onChange={handelOnChange} 
-                placeholder="Email"
-                {...(validationError.email && {error:true, helperText:validationError.email})}
-                
-            />
-            <Button type="submit">Submit</Button>
+        
+            <Container maxWidth="xs">
+                <Card >
+                    <CardContent>
+                        <form onSubmit={handelSubmit} autoComplete="off">
+                            <FormControl fullWidth>
+                                <TextField type="text"
+                                name="name" 
+                                value={formVal.name} 
+                                onChange={handelOnChange} 
+                                placeholder="Name"
+                                {...(validationError.name && {error:true, helperText:validationError.name})}
+                                />
+                            </FormControl>
+                            <FormControl fullWidth>
+                                <TextField type="text"
+                                    name="email"
+                                    value={formVal.email} 
+                                    onChange={handelOnChange} 
+                                    placeholder="Email"
+                                    {...(validationError.email && {error:true, helperText:validationError.email})}
+                                    
+                                />
+                            </FormControl>
+                            <Box mt={2}>
+                                <Button type="submit" variant="contained" color="primary" >Submit</Button>
+                            </Box>
+                        </form>
+                    </CardContent>
+                </Card>
+            </Container>
+            
+            
 
-        </form>
+        
     );
 }
 
