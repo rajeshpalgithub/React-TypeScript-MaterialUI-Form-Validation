@@ -1,7 +1,5 @@
-## 
-## 
-React TypeScript Form Validation
-Materila UI
+## React TypeScript Form Validation
+    Material UI
 ## To Run this project
 
 In the project directory, you can run:
